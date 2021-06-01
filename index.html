@@ -4,638 +4,388 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pan card form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>My Resume</title>
     <style>
-        span{
-            color: red;
-        }
-        table,td{
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
         *{
-            margin: 1px;
-            padding: 2px 0px;
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: darkslategrey;
         }
-        .form-table, .form-table td{
-            border: 0px;
+        .banner{
+            background-color: grey;
+            width: 100%;
+            height: 250px;
         }
-        .form-table td{
-            padding: 5px;
-        }
-        input[type="text"]{
-            height: 26px;
-            width: 260px;
-        }
-        select{
+        .grey-stripe{
+            background-color: whitesmoke;
+            width: 70%;
             height: 35px;
+            top: 180px;
+            position: absolute;
         }
+        .myimg{
+            border-radius: 50%;
+            border: 7px dotted yellow;
+            background-color: darkgrey;
+            position: absolute;
+            top: 25px;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            width: 180px;
+            height: 180px;
+        }
+        .title{
+            background-color: gold;
+            padding: 10px 1%;
+            top: 165px;
+            position: absolute;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 35px;
+            font-weight: bold;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            width: 450px;
+            height: 45px;
+            text-transform: uppercase;
+        }
+        .sub-text{
+            text-align: center;
+            font-weight: lighter;
+            padding: 10px;
+            color: gray;
+            font-size: 22px;
+        }
+        .heading{
+            font-weight: 500;
+            font-size: 35px;
+        }
+        .range-bar{
+            width: 80%;
+            height: 22px;
+        }
+        .skill-td-head{
+            width: 50%;
+        }
+        .content{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .fa{
+            color: yellow;
+            padding: 12px 5px 15px 12px;
+            justify-content: center;
+            justify-items: center;
+            text-align: center;
+            font-size: 40px;
+        }
+        .icons{
+            position: relative;
+            border-radius: 50%;
+            padding: 10px 5px;
+            margin-right: 30px;
+            background-color: gray;
+        }
+        .icons:before {
+            position: absolute;
+            content: '';
+            height: calc(100% + 10px); 
+            width: calc(100% + 10px); 
+            border: 6px dashed gold;
+            top: -13px;
+            left: -13px;
+            border-radius: inherit;
+        }
+        b{
+            font-weight: 800;
+            font-size: 24px;
+        }
+        input[type=range] {
+  width: 100%;
+  margin: 8.3px 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  background: #ffff00;
+  border: 0;
+  border-radius: 25px;
+  width: 100%;
+  height: 10.4px;
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  margin-top: -8.3px;
+  width: 20px;
+  height: 27px;
+  background: #ffffff;
+  border: 0.1px solid #000000;
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ffff42;
+}
+input[type=range]::-moz-range-track {
+  background: #ffff00;
+  border: 0;
+  border-radius: 25px;
+  width: 100%;
+  height: 10.4px;
+  cursor: pointer;
+}
+input[type=range]::-moz-range-thumb {
+  width: 20px;
+  height: 27px;
+  background: #ffffff;
+  border: 0.1px solid #000000;
+  border-radius: 50px;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 21.9px 0;
+  color: transparent;
+  width: 100%;
+  height: 10.4px;
+  cursor: pointer;
+}
+input[type=range]::-ms-fill-lower {
+  background: #bdbd00;
+  border: 0;
+  border-radius: 50px;
+}
+input[type=range]::-ms-fill-upper {
+  background: #ffff00;
+  border: 0;
+  border-radius: 50px;
+}
+input[type=range]::-ms-thumb {
+  width: 20px;
+  height: 27px;
+  background: #ffffff;
+  border: 0.1px solid #000000;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #ffff00;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #ffff42;
+}
+/*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
+how to remove the virtical space around the range input in IE*/
+@supports (-ms-ime-align:auto) {
+  /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+  input[type=range] {
+    margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
+  }
+}
+
     </style>
 </head>
 <body>
-    <div style="background-color: antiquewhite; ">
-        <div style="background-color: brown; color: white;">
-            <h5 style="text-align: center;">Request for the new pan card/ changes/ corrections in pan card</h5>
-            <p style="font-style: italic; text-align: center; font-weight: normal;">Fields marked with <span>* </span> are mandatory. To avoid mistake refere guidelines</p>
-        </div>
-        <div style="font-weight: bold;">
-            <table width=100%>
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                        <p style="display: inline;">
-                            <span>* </span>Whether he is a citizen of India
-                            <div style="display: inline;">
-                                <label for="yes" style="padding-left: 40px;">Yes</label>
-                                <input type="radio" name="citizen" id="yes">
-                                <label for="no" style="padding-left: 20px;">No</label>
-                                <input type="radio" name="citizen" id="no">
-                            </div>
+    <div style="width: 100%;display: flex;">
+        <div style="width: 15%;"></div>
+        <div style="width: 70%;">
+            <header>
+                <div class="banner"></div>
+                <div class="grey-stripe"></div>
+                <img src="./tomc.jpg" alt="imgName" class="myimg">
+                <div class="title">Shri Krishna prasad</div>
+                <div class="sub-text">Web deleloper / MERN stack developer | GUVI | 9999999999 | email@gmail.com | www.google.com</div>
+                <hr/>
+            </header>
+            <div class="body-main" style="display: flex;width: 100%;padding: 2%;">
+                <section class="body-left" style="width: 50%;border-right: 4px solid lightgray;padding: 1%;">
+                   <div class="profile">
+                        <h1 class="heading">
+                            <span class="icons">
+                                <i class="fa fa-user" aria-hidden="true"></i> 
+                            </span>
+                             Profile
+                        </h1>
+                        <p class="content">
+                            Innovative optimized solution seeker. Excited to be at the deployment 
+                            phase of my new career as a web developer. I am ambitious, adventurous, assiduous, animated, and an alliteration advocate.
                         </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                        <p style="display: inline;">
-                            <span>* </span>
-                            <label for="pan">Permanent account number (PAN)</label>
-                            <input type="text" name="" id="pan">
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td colspan="2">
-                        <p style="display: inline;">
-                            <span>* </span> 1. Name
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                        <div style="display: inline;">
-                            Title
-                            <label for="shri/mr" style="padding-left: 40px;">Shri/Mr</label>
-                            <input type="radio" name="title" id="shri/mr">
-                            <label for="Smt./Mrs." style="padding-left: 20px;">Smt./Mrs.</label>
-                            <input type="radio" name="title" id="Smt./Mrs.">
-                            <label for="Kumari/Ms" style="padding-left: 20px;">Kumari/Ms</label>
-                            <input type="radio" name="title" id="Kumari/Ms">
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                        <div style="display: inline;">
-                            <div style="display:inline;"><label for="surname">Last Name/Surname</label></div>
-                            <div style="display:inline;margin-left: 22%;"><label for="firstname">First Name</label></div>
-                            <div style="display:inline;margin-left: 25%;"><label for="middlename">Middle Name</label></div><br/>
-                            <div style="display:inline;"><input type="text" name="surname" id="surname"></div>
-                            <div style="display:inline;margin-left: 20%;"><input type="text" name="firstname" id="firstname"></div>
-                            <div style="display:inline;margin-left: 20%;"><input type="text" name="middlename" id="middlename"></div>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                        <span>* </span>
-                        Name as you would like It printed on the card
-                        <span style="color: blue;font-weight: lighter;">(Prefix like Shri, Smt, Kumari, Late, Dr, CA, Ms, Mr, Mrs, M/s, Alias etc are not allowed)</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                       <input type="text" name="" id="">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                        Details of Parents.
-                        <span style="color: blue;font-weight: lighter;">(Prefix like Shri, Smt, Kumari, Late, Dr, CA, Ms, Mr, Mrs, M/s, Alias etc are not allowed)</span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>
-                        Whether mother is single parent and you wish to apply for PAN by furnishing the name of your mother only
-                    </td>
-                    <td colspan="2">
-                        <p style="display: inline;">
-                            <div style="display: inline;">
-                                <label for="yes" style="padding-left: 0px;">Yes</label>
-                                <input type="radio" name="motherpan" id="yes">
-                                <label for="no" style="padding-left: 20px;">No</label>
-                                <input type="radio" name="motherpan" id="no">
-                            </div>
-                        </p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td colspan="2">
-                        <span>* </span>
-                        Father`s Name 
-                        <span style="color: blue;font-weight: lighter;">(Mandatory field. Even married women should give father`s name only.)</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                        <div style="display: inline;">
-                            <div style="display:inline;"><label for="surname">Last Name/Surname</label></div>
-                            <div style="display:inline;margin-left: 22%;"><label for="firstname">First Name</label></div>
-                            <div style="display:inline;margin-left: 25%;"><label for="middlename">Middle Name</label></div><br/>
-                            <div style="display:inline;"><input type="text" name="surname" id="surname"></div>
-                            <div style="display:inline;margin-left: 20%;"><input type="text" name="firstname" id="firstname"></div>
-                            <div style="display:inline;margin-left: 20%;"><input type="text" name="middlename" id="middlename"></div>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td colspan="2">
-                        <span style="color: blue;font-weight: lighter;">Mother`s Name (This filed is optional.)</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                        <div style="display: inline;">
-                            <div style="display:inline;"><label for="surname">Last Name/Surname</label></div>
-                            <div style="display:inline;margin-left: 22%;"><label for="firstname">First Name</label></div>
-                            <div style="display:inline;margin-left: 25%;"><label for="middlename">Middle Name</label></div><br/>
-                            <div style="display:inline;"><input type="text" name="surname" id="surname"></div>
-                            <div style="display:inline;margin-left: 20%;"><input type="text" name="firstname" id="firstname"></div>
-                            <div style="display:inline;margin-left: 20%;"><input type="text" name="middlename" id="middlename"></div>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>
-                        <span>* </span>
-                        4. Select Parent name which is to be printed on the card<br/>
-                        <span style="color: blue;font-weight: lighter;">(In case no option is provided then PAN card will be issued with father`s name)</span>
-                    </td>
-                    <td colspan="2">
-                        <p style="display: inline;">
-                            <div style="display: inline;">
-                                <label for="father" style="padding-left: 0px;">Father Name</label>
-                                <input type="radio" name="parent" id="father">
-                                <label for="mother" style="padding-left: 20px;">Mother Name</label>
-                                <input type="radio" name="parent" id="mother">
-                            </div>
-                        </p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td>
-                        <span>* </span>
-                        5. Select Parent name which is to be printed on the card<br/>
-                    </td>
-                    <td colspan="2">
-                        <p style="display: inline;">
-                            <div style="display: inline;">
-                                DD MM YYYY <br/>
-                                <input type="date" name="" id="" >
-                            </div>
-                        </p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td>
-                        <span>* </span>
-                        6. Gender
-                    </td>
-                    <td colspan="2">
-                        <p style="display: inline;">
-                            <div style="display: inline;">
-                                <label for="male" style="padding-left: 0px;">Male </label>
-                                <input type="radio" name="gender" id="male">
-                                <label for="female" style="padding-left: 20px;">Female </label>
-                                <input type="radio" name="gender" id="female">
-                                <label for="transgender" style="padding-left: 20px;">TransGender </label>
-                                <input type="radio" name="gender" id="transgender">
-                            </div>
-                        </p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td colspan="2">
-                        7. Photo Mismatch
-                    </td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td colspan="2">
-                        8. Signature Mismatch
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td>
-                        <span>* </span>
-                        9. Address for Communication
-                    </td>
-                    <td colspan="2">
-                        <p style="display: inline;">
-                            <div style="display: inline;">
-                                <label for="residential" style="padding-left: 0px;">Residential </label>
-                                <input type="radio" name="address" id="residential">
-                                <label for="office" style="padding-left: 20px;">Office </label>
-                                <input type="radio" name="address" id="office">
-                            </div>
-                        </p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>
-                       Office Name 
-                       <span style="color: black;font-weight: lighter;">(to be filled only in case of office address)</span>
-                    </td>
-                    <td colspan="2">
-                       <input type="text" name="officeaddr" id="">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                       Flat/Door/Block No. 
-                    </td>
-                    <td colspan="2">
-                       <input type="text" name="door" id="">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                       Name of Premises/Building/Village
-                    </td>
-                    <td colspan="2">
-                       <input type="text" name="building" id="">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                       Road/Street/Lane/Post Office 
-                    </td>
-                    <td colspan="2">
-                       <input type="text" name="street" id="">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                       Area/Locality/Taluka/Sub-Division
-                    </td>
-                    <td colspan="2">
-                       <input type="text" name="area" id="">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                       Town/City/District
-                    </td>
-                    <td colspan="2">
-                       <input type="text" name="city" id="">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        State/Union Territory 
-                    </td>
-                    <td colspan="2">
-                        <select name="state" id="">
-                            <option selected> -- Please Select --</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        PIN 
-                        <span style="color: black;font-weight: lighter;">(Indicating PIN is mandatory)</span>
-                    </td>
-                    <td colspan="2">
-                        <input type="text" name="pin" id="">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        Country  
-                    </td>
-                    <td colspan="2">
-                        <select name="country" id="">
-                            <option selected> -- Please Select --</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        Zip
-                    </td>
-                    <td colspan="2">
-                        <input type="text" name="zip" id="">
-                    </td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td colspan="2">
-                        10. If you desire to update your other address, give required details & 
-                        <a href="#">Submit proof of other address also.</a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td>
-                        <span>* </span>
-                        11. Telephone No.<br/>
-                        <span style="color: black;font-weight: lighter;">(Country code is compulsory)</span>
-                    </td>
-                    <td colspan="2">
-                        Country code (ISD code)<br/>
-                        <select name="isdcode" id="">
-                            <option value="" selected> -- Please select --</option>
-                        </select>
-                        <table>
+                    </div><br/>
+                   <div class="skills">
+                    <h1 class="heading">
+                        <span class="icons">
+                            <i class="fa fa-flask" aria-hidden="true"></i>
+                        </span>
+                        Skills
+                    </h1>
+                    <div class="content">
+                        <center><b>Technical Skills</b></center><br/>
+                        <table style="width: 100%;">
                             <tr>
-                                <td><input type="radio" name="mobile" id=""><label for="mobile">Mobile No.</label></td>
-                                <td><input type="radio" name="telephone" id=""><label for="telephone">Telephone No.</label></td>
+                                <td class="skill-td-head">JavaScript</td>
+                                <td><input type="range" name="" id="" min="0" max="100" value="80" class="range-bar"></td>
                             </tr>
                             <tr>
-                                <td>
-                                    <label for="std">Area/STD Code</label><br/>
-                                    <input type="text" name="" id="std">
-                                </td>
-                                <td>
-                                    <label for="mobile">Telephone No./Mobile No</label><br/>
-                                    <input type="text" name="" id="mobilr">
-                                </td>
+                                <td class="skill-td-head">CSS</td>
+                                <td><input type="range" name="" id="" min="0" max="100" value="90" class="range-bar"></td>
+                            </tr>
+                            <tr>
+                                <td class="skill-td-head">HTML</td>
+                                <td><input type="range" name="" id="" min="0" max="100" value="95" class="range-bar"></td>
+                            </tr>
+                            <tr>
+                                <td class="skill-td-head">React</td>
+                                <td><input type="range" name="" id="" min="0" max="100" value="80" class="range-bar"></td>
+                            </tr>
+                            <tr>
+                                <td class="skill-td-head">Redux</td>
+                                <td><input type="range" name="" id="" min="0" max="100" value="80" class="range-bar"></td>
+                            </tr>
+                            <tr>
+                                <td class="skill-td-head">Mongo</td>
+                                <td><input type="range" name="" id="" min="0" max="100" value="90" class="range-bar"></td>
                             </tr>
                         </table>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>E-mail ID</td>
-                    <td><input type="text" name="" id=""></td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>
-                        <span style="color: black;font-weight: lighter;">In case of a citizen of India, then</span>
-                    </td>
-                    <td colspan="2">
-                        <p style="display: inline;">
-                            <div style="display: inline;">
-                                <label for="aadhaar" style="padding-left: 0px;">AADHAAR </label>
-                                <input type="radio" name="citizen" id="aadhaar">
-                                <label for="eid" style="padding-left: 20px;">EID </label>
-                                <input type="radio" name="citizen" id="eid">
-                            </div>
-                        </p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td>
-                        <span>* </span>
-                        12. AADHAAR number :
-                    </td>
-                    <td>
-                        <input type="text" name="" id=""><br/>
-                        <i style="color: blue;font-weight: lighter;">
-                            In case AADHAAR number is provided, then proof of AADHAAR along with supporting documents is to be submitted to NSDI.
-                        </i>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>
-                        <span>* </span>
-                        <span style="color: black;font-weight: lighter;">
-                            Name as per AADHAAR letter<br/>or<br/>as per the enrollment ID of Aadhaar application form
+                        <br/><center><b>Additional Skills</b></center><br/>
+                        <table style="width: 100%;">
+                            <tr>
+                                <td class="skill-td-head">Project Management</td>
+                                <td><input type="range" name="" id="" min="0" max="100" value="90" class="range-bar"></td>
+                            </tr>
+                            <tr>
+                                <td class="skill-td-head">Recrutment</td>
+                                <td><input type="range" name="" id="" min="0" max="100" value="80" class="range-bar"></td>
+                            </tr>
+                            <tr>
+                                <td class="skill-td-head">Business Development</td>
+                                <td><input type="range" name="" id="" min="0" max="100" value="90" class="range-bar"></td>
+                            </tr>
+                            <tr>
+                                <td class="skill-td-head">Editing</td>
+                                <td><input type="range" name="" id="" min="0" max="100" value="80" class="range-bar"></td>
+                            </tr>
+                            <tr>
+                                <td class="skill-td-head">Fundraising</td>
+                                <td><input type="range" name="" id="" min="0" max="100" value="90" class="range-bar"></td>
+                            </tr>
+                        </table>
+                    </div>
+                   </div>
+                   <br/>
+                   <div class="workExperience">
+                    <h1 class="heading">
+                        <span class="icons">
+                            <i class="fa fa-briefcase" aria-hidden="true"></i>
                         </span>
-                    </td>
-                    <td>
-                        <input type="text" name="" id=""><br/>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>13. GSTIN</td>
-                    <td><input type="text" name="" id=""></td>
-                </tr>
-
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td colspan="2">
-                        14. Mention other Permanent Account Number (PANs) If any, Inadvertently alloted to you. <a href="#">Submit proof of surrendernd PAN(s) along with the application.</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <label for="pan1">PAN1</label>
-                        <input type="text" name="" id="pan1">
-                    </td>
-                    <td>
-                        <label for="pan2">PAN2</label>
-                        <input type="text" name="" id="pan2">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <label for="pan3">PAN3</label>
-                        <input type="text" name="" id="pan3">
-                    </td>
-                    <td>
-                        <label for="pan4">PAN4</label>
-                        <input type="text" name="" id="pan4">
-                    </td>
-                </tr>
-               <tr>
-                   <td></td>
-                   <td colspan="2">15. Verification</td>
-               </tr>
-
-               <tr>
-                   <td></td>
-                   <td colspan="2">
-                        I/We <input type="text" name="" id="" style="margin-left: 10px;margin-right: 5px;"> ,
-                        the applicant, in the capacity of 
-                        <select name="" id="">
-                                <option value="" selected> -- Please Select -- </option>
-                        </select> <br/>
-                        do hereby declare that what is stated above is true to 
-                        the best of my Information and belief.<br/>
-                        I have enclosed <input type="text" name="" id=""> (number of documents) in support of proposed changes/corrections.
-                    </td>
-               </tr>
-
-               <tr>
-                   <td></td>
-                   <td colspan="2">
-                       Place <input type="text" name="" id="">
-                   </td>
-               </tr>
-               <tr>
-                <td></td>
-                <td colspan="2">
-                   <span style="color: black;font-weight: normal;margin-left: 215px;">DD-MM-YYYY</span><br/>
-                   Verified today, the 26-04-2021
-                </td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td colspan="2">
-                     I/We have enclosed <br/>
-                     <select name="" id="" style="width: 80%;">
-                         <option value=""> -- Please Select --</option>
-                     </select> as proofof identity,<br/>
-                     <select name="" id="" style="width: 80%;">
-                         <option value=""> -- Please Select --</option>
-                     </select> as proof of address,<br/>
-                     <select name="" id="" style="width: 80%;">
-                        <option value=""> -- Please Select --</option>
-                    </select> as proof of date of birth, and<br/>
-                    <select name="" id="" style="width: 30%;">
-                        <option value=""> -- Please Select --</option>
-                    </select> as proof of PAN alloted,<br/>
-                 </td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td colspan="2">
-                    <p style="display: inline;">
-                        Whether you wish to have?
-                        <div style="display: inline;">
-                            <label for="yes" style="padding-left: 40px;">Physical PAN Card & e-PAN Card</label>
-                            <input type="radio" name="pan" id="yes">
-                            <label for="no" style="padding-left: 20px;">Only e-PAN Card</label>
-                            <input type="radio" name="pan" id="no">
-                            <i style="padding-left: 20px;"><u>Fees Applicable</u></i>
-                        </div>
+                            Work experience
+                    </h1>
+                    <p class="content">
+                        <b>Event Manager</b> <span style="float: right;">03/2014 - 02/2017</span><br/>
+                        C3 Presents, Washington DC<br/><br/>
+                        <ul style="margin-left: 50px;">
+                            <li>
+                                Lead and execute all phases of event planning and production spanning committee recruitment,
+                                training, vendor relationships and on-site facitation.
+                            </li>
+                            <li>
+                                Brought new business to the organization through relentless networkinh and
+                                stewardship Brought new business to the organization through relentless networkinh and
+                                stewardship Brought new business to the organization through relentless networkinh and
+                                stewardship Brought new business to the organization through relentless networkinh and
+                                stewardship.
+                            </li>
+                            <li>
+                                Brought new business to the organization through relentless networkinh and
+                                stewardship
+                                Brought new business to the organization through relentless networkinh and
+                                stewardship
+                                Brought new business to the organization through relentless networkinh and
+                                stewardship
+                            </li>
+                        </ul>
                     </p>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td colspan="2">Other Details</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td colspan="2">1. Depository Account Details</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td colspan="2">
-                    <label for="dpid">DP ID:</label>
-                    <input type="text" name="" id="dpid" style="margin-left: 20px; margin-right: 20px;">
-                    <label for="clientid">Client ID:</label>
-                    <input type="text" name="" id="clientid" style="margin-left: 20px; margin-right: 20px;">
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td colspan="2">2. Payemnt Details</td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="radio" name="" id="">
-                </td>
-                <td colspan="2">Online Payment</td>
-            </tr>
-            </table>
+                   </div>
+                </section>
+        
+                <section class="body-right" style="width: 50%;float: right;padding: 1% 4% 2% 2%;">
+                    <div class="workExperience">
+                        <h1 class="heading">
+                            <span class="icons">
+                                <i class="fa fa-briefcase" aria-hidden="true"></i>
+                            </span>
+                                Work experience
+                        </h1>
+                        <p class="content">
+                            <b>Community Relations Manager</b> <span style="float: right;">03/2014 - 02/2017</span><br/>
+                            C3 Presents, Washington DC<br/><br/>
+                            <ul style="margin-left: 50px;">
+                                <li>
+                                    Lead and execute all phases of event planning and production spanning committee recruitment,
+                                </li>
+                                <li>
+                                    training, vendor relationships and on-site facitation.
+                                </li>
+                                <li>
+                                    Brought new business to the organization through relentless networkinh and
+                                    stewardship Brought new business to the organization through relentless networkinh and
+                                </li>
+                                <li>
+                                    stewardship Brought new business to the organization through relentless networkinh and
+                                    stewardship Brought new business to the organization through relentless networkinh and
+                                </li>
+                               
+                            </ul>
+                        </p>
+                       </div><br/>
+                    <div class="education">
+                        <h1 class="heading">
+                            <span class="icons">
+                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                            </span>
+                                Education
+                        </h1>
+                        <p class="content">
+                            <b>Engineering immersion Program</b> <span style="float: right;">03/2014 - 02/2017</span><br/>
+                            Thinkful Chicago, IL<br/><br/>
+        
+                            Project-focused intensive program with emphasis on Mongo, Express, React and JavaScript (MERN) technical stack.<br/><br/>
+                            <ul style="margin-left: 90px;">
+                                <li>
+                                    Lead and execute all phases of event planning and production spanning committee recruitment,
+                                </li>
+                                <li>
+                                    training, vendor relationships and on-site facitation.
+                                </li>
+                                <li>
+                                    Brought new business to the organization through relentless networkinh and
+                                    stewardship Brought new business to the organization through relentless networkinh and
+                                </li>
+                                <li>
+                                    stewardship Brought new business to the organization through relentless networkinh and
+                                    stewardship Brought new business to the organization through relentless networkinh and
+                                </li>
+                               
+                            </ul>
+                        </p>
+                    </div>
+                </section>
+            </div>
         </div>
-        <br/>
-        <div style="width: 100%;">
-            For Paperless PAN Application: 
-            <div style="display: inline;">
-                <label for="yes" style="padding-left: 40px;">Yes</label>
-                <input type="radio" name="pan" id="yes">
-                <label for="no" style="padding-left: 20px;">No</label>
-                <input type="radio" name="pan" id="no">
-            </div><br/>
-            <label for="dsc">DSC</label>
-            <input type="radio" name="pan" id="dsc">
-            <select name="" id="" style="margin-right: 20px;">
-                <option value=""> -- Select --</option>
-            </select>
-            <span><u>Guidelines for DSC user</u></span><br/>
-            <table class="form-table" style="width: 80%;">
-                <tr>
-                    <td>Upload Photo</td>
-                    <td><input type="file" name="" id=""></td>
-                </tr>
-                <tr>
-                    <td>Upload Signature</td>
-                    <td><input type="file" name="" id=""></td>
-                </tr>
-                <tr>
-                    <td>Upload Document</td>
-                    <td><input type="file" name="" id=""></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <button>Fetch from DigiLocker</button>
-                    </td
-                ></tr>
-                <tr>
-                    <td>ALREADY UPLOADED PHOTO:</td>
-                    <td><input type="text" name="" id=""></td>
-                </tr>
-                <tr>
-                    <td>ALREADY UPLOADED SIGNATURE:</td>
-                    <td><input type="text" name="" id=""></td>
-                </tr>
-                <tr>
-                    <td>ALREADY UPLOADED DOCUMENTS:</td>
-                    <td><textarea name="" id="" cols="30" rows="10"></textarea></td>
-                </tr>
-            </table>
-            <br/>
-            <centre style="margin-left: 50%;"> <button>Submit</button></centre>
-            <br/>
-            <hr/>
-            <br/>
-        </div>
+        <div style="width: 15%;"></div>
     </div>
 </body>
 </html>
